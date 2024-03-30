@@ -1,11 +1,15 @@
 
+
+
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import ProductCard from "./components/Product/ProductCard";
-import About from "./components/Product/About";
-import Contact from "./components/Product/Contact";
-import Banner from './components/Banner';
+import About from './components/Product/About';
+import Contact from './components/Product/Contact';
+import Footer from './components/Footer';
+
+
 
 const products = [
   {
@@ -87,9 +91,6 @@ function App() {
   const [isShowMenu, setIsShowMenu] = useState(false);
 
   return (
-
-    
-
     <div className="App">
       {/* Header */}
       <Header isShow={isShowMenu} setIsShowMenu={setIsShowMenu} />
@@ -126,8 +127,13 @@ function App() {
       <About />
       {/* about section end */}
       {/*about section start*/}
-      <Contact />
-      {/*end*/}
+     <Contact/>
+     {/*end*/}
+     {/*  footer start */}
+     <Footer/>
+     {/*  footer end */}
+
+
     </div>
 
   );
