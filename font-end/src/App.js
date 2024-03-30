@@ -1,13 +1,12 @@
 
-
-
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import ProductCard from "./components/Product/ProductCard";
 import About from './components/Product/About';
 import Contact from './components/Product/Contact';
-import Footer from './components/Footer';
+import Footer from './components/Product/Footer';
+import Banner from './components/Product/Banner';
 
 
 

@@ -1,3 +1,4 @@
+import React from 'react'
 export default function Banner(props) {
     const title = props.title;
     const description = props.description;
