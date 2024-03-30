@@ -1,9 +1,11 @@
-import './App.css';
-import Contact from './components/Contact';
+
 import { useState } from "react";
 import "./App.css";
-import Header from "./Components/Header/Header";
-import ProductCard from "./Components/Product/ProductCard";
+import Header from "./components/Header/Header";
+import ProductCard from "./components/Product/ProductCard";
+import About from './components/Product/About';
+import Contact from './components/Product/Contact';
+
 
 const products = [
   {
@@ -86,7 +88,6 @@ function App() {
 
   return (
     <div className="App">
-     
       {/* Header */}
       <Header isShow={isShowMenu} setIsShowMenu={setIsShowMenu} />
       {/* start our product */}
@@ -117,8 +118,12 @@ function App() {
         </div>
       </div>
       {/* end our product */}
-      // Contact
+      {/* about section start */}
+      <About/>
+      {/* about section end */}
+      {/*about section start*/}
      <Contact/>
+     {/*end*/}
     </div>
    
   );
