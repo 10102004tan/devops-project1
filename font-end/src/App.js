@@ -75,7 +75,7 @@ const products = [
   {
     productName: "Makeup Kit",
     description:
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqu.",
     imageUrl: "image10",
     price: 50,
   },
