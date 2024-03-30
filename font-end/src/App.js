@@ -1,5 +1,5 @@
 import './App.css';
-import ProductCard from './Components/Product/ProductCard';
+import ProductCard from './components/Product/ProductCard';
 
 
 const products = [
