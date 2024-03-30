@@ -1,9 +1,11 @@
 
 import { useState } from "react";
 import "./App.css";
-import Header from "./Components/Header/Header";
-import ProductCard from "./Components/Product/ProductCard";
+import Header from "./components/Header/Header";
+import ProductCard from "./components/Product/ProductCard";
 import About from './components/Product/About';
+import Contact from './components/Product/Contact';
+
 
 const products = [
   {
@@ -75,7 +77,7 @@ const products = [
   {
     productName: "Makeup Kit",
     description:
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqu.",
     imageUrl: "image10",
     price: 50,
   },
@@ -86,7 +88,6 @@ function App() {
 
   return (
     <div className="App">
-
       {/* Header */}
       <Header isShow={isShowMenu} setIsShowMenu={setIsShowMenu} />
       {/* start our product */}
@@ -120,7 +121,11 @@ function App() {
       {/* about section start */}
       <About/>
       {/* about section end */}
+      {/*about section start*/}
+     <Contact/>
+     {/*end*/}
     </div>
+   
   );
 }
 

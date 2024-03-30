@@ -1,3 +1,35 @@
+
+
+/*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
+
+* {
+    box-sizing: border-box !important;
+    transition: ease all 0.5s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.80857;
+    font-weight: normal;
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    color: #1f1f1f;
+    text-decoration: none !important;
+    outline: none !important;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,6 +60,7 @@ a {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+
 }
 
 h1,
@@ -36,43 +69,46 @@ h3,
 h4,
 h5,
 h6 {
-  letter-spacing: 0;
-  font-weight: normal;
-  position: relative;
-  padding: 0 0 10px 0;
-  font-weight: normal;
-  line-height: normal;
-  color: #111111;
-  margin: 0;
+    letter-spacing: 0;
+    font-weight: normal;
+    position: relative;
+    padding: 0 0 10px 0;
+    font-weight: normal;
+    line-height: normal;
+    color: #111111;
+    margin: 0
 }
 
 h1 {
-  font-size: 24px;
+    font-size: 24px
 }
 
 h2 {
-  font-size: 22px;
+    font-size: 22px
 }
 
 h3 {
-  font-size: 18px;
+    font-size: 18px
 }
 
 h4 {
-  font-size: 16px;
+    font-size: 16px
 }
 
 h5 {
-  font-size: 14px;
+    font-size: 14px
 }
 
 h6 {
-  font-size: 13px;
+    font-size: 13px
 }
 
 *,
 *::after,
 *::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -120,49 +156,128 @@ a {
 
 a,
 .btn {
-  text-decoration: none !important;
-  outline: none !important;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+    text-decoration: none !important;
+    outline: none !important;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+ :focus {
+    outline: 0;
+}
+
+.paddind_bottom_0 {
+    padding-bottom: 0 !important;
+}
+
+.btn-custom {
+    margin-top: 20px;
+    background-color: transparent !important;
+    border: 2px solid #ddd;
+    padding: 12px 40px;
+    font-size: 16px;
+}
+
+.lead {
+    font-size: 18px;
+    line-height: 30px;
+    color: #767676;
+    margin: 0;
+    padding: 0;
+}
+
+.form-control:focus {
+    border-color: #ffffff !important;
+    box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
+}
+
+.navbar-form input {
+    border: none !important;
+}
+
+.badge {
+    font-weight: 500;
 }
 
 blockquote {
-  margin: 20px 0 20px;
-  padding: 30px;
+    margin: 20px 0 20px;
+    padding: 30px;
 }
 
 button {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
 }
+
+.full {
+    float: left;
+    width: 100%;
+}
+
 .layout_padding {
-  padding-top: 90px;
-  padding-bottom: 0px;
+    padding-top: 90px;
+    padding-bottom: 0px;
 }
 
-/* product section start */
-
-.product_section {
-  width: 100%;
-  float: left;
-  padding-bottom: 90px;
+.padding_0 {
+    padding: 0px;
 }
 
-.product_taital {
+
+/* contact section start */
+
+.contact_section {
   width: 100%;
   float: left;
+}
+
+.contact_taital {
+  width: 100%;
+  float: left;
+  color: #1a1c1b;
+  font-weight: bold;
   font-size: 40px;
   text-transform: uppercase;
+}
+
+.contact_text {
+  width: 100%;
+  float: left;
+  color: #252525;
+  margin: 0px;
+  font-size: 16px;
+}
+
+.contact_main {
+  width: 100%;
+  display: flex;
+  margin-top: 45px;
+}
+
+.contact_bt {
+  width: 200px;
+}
+
+.contact_bt a {
+  width: 100%;
+  float: left;
+  font-size: 16px;
+  color: #ffffff;
+  padding: 10px 30px;
+  background-color: #252525;
+  text-transform: uppercase;
+  margin-right: 15px;
+  border-radius: 5px;
   text-align: center;
   color: #232322;
   font-weight: bold;
@@ -304,3 +419,12 @@ button {
 .nav_item:hover {
   color: #fc967e !important;
 }
+
+.contact_section_2 {
+  width: 100%;
+  float: left;
+}
+
+
+/* contact section start */
+
