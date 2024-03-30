@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+.banner_section{
+  background: url(../public/images/banner-bg.png);
+}
+@font-face {
+  font-family: vibes;
+  src: url(../public/Great_Vibes/GreatVibes-Regular.ttf);
+}
+.banner_taital{
+  font-family: vibes;
+  font-size: 100px;
+}
+.btn-buy-now{
+  text-decoration: none;
+  color:white;
+  line-height: 50px;
+  padding: 0 30px;
+  width: 130px;
+  display: inline-block;
+}
+.read_bt{
+  width: 130px;
+  height: 50px;
+  background-color: black;
+  border-radius: 10px;
+}
