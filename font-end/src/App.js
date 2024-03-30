@@ -1,7 +1,9 @@
+
 import { useState } from "react";
 import "./App.css";
 import Header from "./Components/Header/Header";
 import ProductCard from "./Components/Product/ProductCard";
+import About from './components/Product/About';
 
 const products = [
   {
@@ -84,6 +86,7 @@ function App() {
 
   return (
     <div className="App">
+
       {/* Header */}
       <Header isShow={isShowMenu} setIsShowMenu={setIsShowMenu} />
       {/* start our product */}
@@ -114,6 +117,9 @@ function App() {
         </div>
       </div>
       {/* end our product */}
+      {/* about section start */}
+      <About/>
+      {/* about section end */}
     </div>
   );
 }
