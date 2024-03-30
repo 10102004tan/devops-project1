@@ -1,11 +1,9 @@
-
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import ProductCard from "./components/Product/ProductCard";
-import About from './components/Product/About';
-import Contact from './components/Product/Contact';
-
+import About from "./components/Product/About";
+import Contact from "./components/Product/Contact";
 
 const products = [
   {
@@ -119,13 +117,12 @@ function App() {
       </div>
       {/* end our product */}
       {/* about section start */}
-      <About/>
+      <About />
       {/* about section end */}
       {/*about section start*/}
-     <Contact/>
-     {/*end*/}
+      <Contact />
+      {/*end*/}
     </div>
-   
   );
 }
 
