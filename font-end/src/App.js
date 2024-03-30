@@ -79,9 +79,7 @@ const products = [
 function App() {
   return (
     <div className="App">
-      {/* about section start */}
-      <About/>
-      {/* about section end */}
+      
       {/* start our product */}
       <div className="product_section layout_padding">
         <div className="container">
@@ -107,6 +105,9 @@ function App() {
         </div>
       </div>
       {/* end our product */}
+      {/* about section start */}
+      <About/>
+      {/* about section end */}
     </div>
   );
 }
