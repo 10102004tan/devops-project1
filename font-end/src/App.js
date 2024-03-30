@@ -10,6 +10,7 @@ import Contact from './components/Product/Contact';
 import Footer from './components/Footer';
 
 
+
 const products = [
   {
     productName: "Beauty Brush",
@@ -90,10 +91,10 @@ function App() {
   const [isShowMenu, setIsShowMenu] = useState(false);
 
   return (
-  
     <div className="App">
       {/* Header */}
       <Header isShow={isShowMenu} setIsShowMenu={setIsShowMenu} />
+       <Banner title={<>Beauty <br />Kit</>} description={<>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati reiciendis vero, molestiae aut esse rerum eveniet iste? Minus sit, non, excepturi distinctio aliquid velit corrupti molestias ipsam perferendis doloremque reprehenderit.</>}/>
       {/* start our product */}
       <div className="product_section layout_padding">
         <div className="container">
@@ -123,7 +124,7 @@ function App() {
       </div>
       {/* end our product */}
       {/* about section start */}
-      <About/>
+      <About />
       {/* about section end */}
       {/*about section start*/}
      <Contact/>
@@ -132,8 +133,9 @@ function App() {
      <Footer/>
      {/*  footer end */}
 
+
     </div>
-   
+
   );
 }
 
