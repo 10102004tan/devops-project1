@@ -1,9 +1,11 @@
+
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import ProductCard from "./components/Product/ProductCard";
 import About from "./components/Product/About";
 import Contact from "./components/Product/Contact";
+import Banner from './components/Banner';
 
 const products = [
   {
@@ -85,9 +87,13 @@ function App() {
   const [isShowMenu, setIsShowMenu] = useState(false);
 
   return (
+
+    
+
     <div className="App">
       {/* Header */}
       <Header isShow={isShowMenu} setIsShowMenu={setIsShowMenu} />
+       <Banner title={<>Beauty <br />Kit</>} description={<>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati reiciendis vero, molestiae aut esse rerum eveniet iste? Minus sit, non, excepturi distinctio aliquid velit corrupti molestias ipsam perferendis doloremque reprehenderit.</>}/>
       {/* start our product */}
       <div className="product_section layout_padding">
         <div className="container">
@@ -123,6 +129,7 @@ function App() {
       <Contact />
       {/*end*/}
     </div>
+
   );
 }
 
