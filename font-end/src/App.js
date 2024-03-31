@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -6,9 +7,6 @@ import About from './components/Product/About';
 import Contact from './components/Product/Contact';
 import Footer from './components/Product/Footer';
 import Banner from './components/Product/Banner';
-
-
-
 
 const products = [
   {
