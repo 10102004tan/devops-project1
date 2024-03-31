@@ -8,6 +8,7 @@ import Contact from "./components/Product/Contact";
 import ProductCard from "./components/Product/ProductCard"
 import ProductList from "./components/Product/ProductList"
 import Banner from "./components/Product/Banner"
+import Footer from "./components/Product/Footer"
 
 
 function App() {
