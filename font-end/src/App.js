@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./App.css";
 import { useEffect } from "react";
@@ -7,6 +8,7 @@ import Contact from "./components/Product/Contact";
 import ProductCard from "./components/Product/ProductCard"
 import ProductList from "./components/Product/ProductList"
 import Banner from "./components/Product/Banner"
+
 
 function App() {
 
@@ -52,6 +54,7 @@ function App() {
       ))}
       {/* end banner */}
 
+
       {/* start our product */}
       <ProductList products={products} />
       {/* end our product */}
@@ -59,8 +62,13 @@ function App() {
       <About />
       {/* about section end */}
       {/*about section start*/}
-      <Contact />
-      {/*end*/}
+     <Contact/>
+     {/*end*/}
+     {/*  footer start */}
+     <Footer/>
+     {/*  footer end */}
+
+
     </div>
   );
 }

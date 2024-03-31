@@ -19,6 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.vm.network "private_network", ip: "172.16.3.3"
     node.vm.provider "virtualbox" do |vb|
       vb.memory = 2024
+
     end
   end
 end
