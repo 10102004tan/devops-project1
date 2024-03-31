@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -7,6 +6,7 @@ import About from './components/Product/About';
 import Contact from './components/Product/Contact';
 import Footer from './components/Product/Footer';
 import Banner from './components/Product/Banner';
+
 
 
 
@@ -93,7 +93,22 @@ function App() {
     <div className="App">
       {/* Header */}
       <Header isShow={isShowMenu} setIsShowMenu={setIsShowMenu} />
-       <Banner title={<>Beauty <br />Kit</>} description={<>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati reiciendis vero, molestiae aut esse rerum eveniet iste? Minus sit, non, excepturi distinctio aliquid velit corrupti molestias ipsam perferendis doloremque reprehenderit.</>}/>
+      <Banner
+        title={
+          <>
+            Beauty <br />
+            Kit
+          </>
+        }
+        description={
+          <>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati
+            reiciendis vero, molestiae aut esse rerum eveniet iste? Minus sit,
+            non, excepturi distinctio aliquid velit corrupti molestias ipsam
+            perferendis doloremque reprehenderit.
+          </>
+        }
+      />
       {/* start our product */}
       <div className="product_section layout_padding">
         <div className="container">
@@ -134,7 +149,6 @@ function App() {
 
 
     </div>
-
   );
 }
 
