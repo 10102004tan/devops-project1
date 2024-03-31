@@ -1,0 +1,8 @@
+vagrant up
+npm run buil
+vagant ssh
+ctrl D : thoat may ao
+vagrant halt
+sysned: "../fontend/build/"
+install nginx
+cau hinh lai nginx etc/sitec
