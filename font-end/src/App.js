@@ -2,9 +2,13 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import ProductCard from "./components/Product/ProductCard";
-import About from "./components/Product/About";
-import Contact from "./components/Product/Contact";
-import Banner from "./components/Banner";
+import About from './components/Product/About';
+import Contact from './components/Product/Contact';
+import Footer from './components/Product/Footer';
+import Banner from './components/Product/Banner';
+
+
+
 
 const products = [
   {
@@ -137,8 +141,13 @@ function App() {
       <About />
       {/* about section end */}
       {/*about section start*/}
-      <Contact />
-      {/*end*/}
+     <Contact/>
+     {/*end*/}
+     {/*  footer start */}
+     <Footer/>
+     {/*  footer end */}
+
+
     </div>
   );
 }
