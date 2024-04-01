@@ -36,10 +36,10 @@ export default function Footer() {
                             <div className="col-sm-4">
                                 <div className="main">
                                     <h3 className="address_text">Brand</h3>
-                                    <p className="text-center dark-light">Dior</p>
-                                    <p className="text-center dark-light">Gucci</p>
-                                    <p className="text-center dark-light">Bacarat</p>
-                                    <p className="text-center dark-light">Channel</p>
+                                    <p className="text-center">Dior</p>
+                                    <p className="text-center">Gucci</p>
+                                    <p className="text-center">Bacarat</p>
+                                    <p className="text-center">Channel</p>
                                 </div>
                             </div>
                         </div>
