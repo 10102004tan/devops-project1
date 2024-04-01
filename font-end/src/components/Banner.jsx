@@ -1,6 +1,7 @@
 export default function Banner(props) {
     const title = props.title;
     const description = props.description;
+
     return (
         
         <div className="banner_section layout_padding">

@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useEffect } from 'react';
 import "./App.css";
 import Header from "./components/Header/Header";
 import ProductCard from "./components/Product/ProductCard";
@@ -83,17 +84,31 @@ const products = [
   },
 ];
 
-function App() {
+function App(props) {
   const [isShowMenu, setIsShowMenu] = useState(false);
+  const [banner, setBanner] = useState([]);
+
+  // React Hook
+  useEffect(() => {
+    fetch("http://localhost:3003/banners").then((res) => {
+      return res.json();
+    }).then((data) => {
+      setBanner(data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }, []);
 
   return (
-
-    
-
     <div className="App">
       {/* Header */}
-      <Header isShow={isShowMenu} setIsShowMenu={setIsShowMenu} />
-       <Banner title={<>Beauty <br />Kit</>} description={<>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati reiciendis vero, molestiae aut esse rerum eveniet iste? Minus sit, non, excepturi distinctio aliquid velit corrupti molestias ipsam perferendis doloremque reprehenderit.</>}/>
+      <Header isShow={ isShowMenu} setIsShowMenu={setIsShowMenu} />
+      {/* Banner */}
+      {
+        banner.length > 0 && banner.map(element => {
+          return <Banner title={element.title} description={element.description} />
+        })
+      }
       {/* start our product */}
       <div className="product_section layout_padding">
         <div className="container">

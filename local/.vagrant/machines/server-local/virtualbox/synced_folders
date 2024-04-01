@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant/html":{"guestpath":"/vagrant/html","hostpath":"E:/DevOps/devops-project1/font-end/build","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"E:/DevOps/devops-project1/local","disabled":false,"__vagrantfile":true}}}
