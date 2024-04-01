@@ -13,6 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "server-local" do |node|
     node.vm.box = "ubuntu/focal64"
     node.vm.hostname = "server-local"
+
     node.vm.synced_folder "../font-end/build", "/vagrant/html"
     node.vm.provision :shell, path: "./setup/install-env.sh"
     node.vm.network "forwarded_port", guest: 80, host: 8080
