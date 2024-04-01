@@ -1,9 +1,10 @@
+import React from 'react'
 export default function Banner(props) {
     const title = props.title;
     const description = props.description;
 
     return (
-        
+
         <div className="banner_section layout_padding">
             <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
@@ -33,5 +34,4 @@ export default function Banner(props) {
             </div>
         </div>
     );
-
 }

@@ -3,139 +3,58 @@ import { useState } from "react";
 import { useEffect } from 'react';
 import "./App.css";
 import Header from "./components/Header/Header";
-import ProductCard from "./components/Product/ProductCard";
 import About from "./components/Product/About";
 import Contact from "./components/Product/Contact";
-import Banner from './components/Banner';
+import ProductList from "./components/Product/ProductList"
+import Banner from "./components/Product/Banner"
+import Footer from "./components/Product/Footer"
 
-const products = [
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Beauty Brush",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    imageUrl: "image12",
-    price: 30,
-  },
-  {
-    productName: "Makeup Kit",
-    description:
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqu.",
-    imageUrl: "image10",
-    price: 50,
-  },
-];
 
-function App(props) {
+function App() {
+
+  // 
+  const [banners, setBanners] = useState([])
+  const [products, setProducts] = useState([])
   const [isShowMenu, setIsShowMenu] = useState(false);
-  const [banner, setBanner] = useState([]);
-
-  // React Hook
   useEffect(() => {
-    fetch("http://localhost:3003/banners").then((res) => {
-      return res.json();
-    }).then((data) => {
-      setBanner(data);
-    }).catch((err) => {
-      console.log(err);
-    });
+    fetch("http://localhost:3000/banners")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setBanners(data)
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
   }, []);
+
+  useEffect(() => {
+    fetch("https://tiki.vn/api/personalish/v1/blocks/listings?limit=40&include=advertisement&aggregations=2&version=home-persionalized&trackity_id=76570098-dd66-90d6-7bde-9c9ba5b25f4c&category=1882&page=2&urlKey=dien-gia-dung")
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        setProducts(data['data'])
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      })
+  }, [])
+
+
 
   return (
     <div className="App">
       {/* Header */}
-      <Header isShow={ isShowMenu} setIsShowMenu={setIsShowMenu} />
-      {/* Banner */}
-      {
-        banner.length > 0 && banner.map(element => {
-          return <Banner title={element.title} description={element.description} />
-        })
-      }
+      <Header isShow={isShowMenu} setIsShowMenu={setIsShowMenu} />
+      {/* banner */}
+      {banners.map((banner) => (
+        <Banner title={banner.title} />
+      ))}
+      {/* end banner */}
       {/* start our product */}
-      <div className="product_section layout_padding">
-        <div className="container">
-          <div className="row">
-            <h1 className="product_taital">Our Products</h1>
-            <p className="product_text">
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation
-            </p>
-          </div>
-          <div className="product_section_2 layout_padding">
-            <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5">
-              {products.map((product) => (
-                <ProductCard
-                  productName={product.productName}
-                  description={product.description}
-                  imageUrl={product.imageUrl}
-                  price={product.price}
-                />
-              ))}
-            </div>
-            <div className="seemore_bt">
-              <a href="#">See More</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ProductList products={products} />
       {/* end our product */}
       {/* about section start */}
       <About />
@@ -143,9 +62,12 @@ function App(props) {
       {/*about section start*/}
       <Contact />
       {/*end*/}
-    </div>
+      {/*  footer start */}
+      <Footer />
+      {/*  footer end */}
 
+
+    </div>
   );
 }
-
 export default App;
