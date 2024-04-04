@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import ProductCard from "./components/Product/ProductCard";
@@ -6,9 +6,6 @@ import About from './components/Product/About';
 import Contact from './components/Product/Contact';
 import Footer from './components/Product/Footer';
 import Banner from './components/Product/Banner';
-
-
-
 
 const products = [
   {
@@ -86,32 +83,52 @@ const products = [
   },
 ];
 
-function App() {
+function App(props) {
   const [isShowMenu, setIsShowMenu] = useState(false);
+  const [banners, setBanners] = useState([]);
+  // React Hook
+  useEffect(() => {
+    fetch("http://localhost:3009/banner").then((res) => {
+      return res.json();
+    }).then((data) => {
+      console.log(data);
+      setBanners(data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }, []);
 
   return (
     <div className="App">
       {/* Header */}
       <Header isShow={isShowMenu} setIsShowMenu={setIsShowMenu} />
-      <Banner
-        title={
-          <>
-            Beauty <br />
-            Kit
-          </>
-        }
-        description={
-          <>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati
-            reiciendis vero, molestiae aut esse rerum eveniet iste? Minus sit,
-            non, excepturi distinctio aliquid velit corrupti molestias ipsam
-            perferendis doloremque reprehenderit.
-          </>
-        }
-      />
+
+      {/* Banner start */}
+      <div className="banner_section layout_padding">
+        <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
+          <div className="carousel-inner">
+            {
+              banners.map((banner,index) => {
+                return (<Banner key={index} active={(index == 1?"active":"")} title={banner.title} description={banner.description} image={banner.image}/>)
+              })
+            }
+            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* Banner end */}
       {/* start our product */}
       <div className="product_section layout_padding">
         <div className="container">
+        <div className="read_bt"><a class="btn-buy-now" href="#">Buy Now</a></div>
+
           <div className="row">
             <h1 className="product_taital">Our Products</h1>
             <p className="product_text">
@@ -136,18 +153,17 @@ function App() {
           </div>
         </div>
       </div>
+
       {/* end our product */}
       {/* about section start */}
       <About />
       {/* about section end */}
       {/*about section start*/}
-     <Contact/>
-     {/*end*/}
-     {/*  footer start */}
-     <Footer/>
-     {/*  footer end */}
-
-
+      <Contact />
+      {/*end*/}
+      {/*  footer start */}
+      <Footer />
+      {/*  footer end */}
     </div>
   );
 }
