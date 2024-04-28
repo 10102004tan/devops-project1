@@ -3,9 +3,26 @@ const fetch = require("node-fetch");
 const cors = require("cors");
 const app = express();
 const port = process.env.port || "3000";
+const dbHost = process.env.DB_HOST || 'localhost';
+const dbPort = process.env.DB_PORT || '3306';
+const dbUser = process.env.DB_USER || 'admin';
+const dbPass = process.env.DB_PASS || 'admin';
+const dbName = process.env.DB_NAME || 'tdc-devops';
 
+const db = require('mysql2');
 const CORS_WHITELIST = ["http://localhost:3000", "http://localhost:3002"];
+const connection = db.createConnection({
+  host: dbHost,
+  port: dbPort,
+  user: dbUser,
+  password: dbPass,
+  database: dbName
+});
 
+connection.connect(function(err) {
+  if (err) throw err;
+  console.log("DB Connected!")
+});
 app.get("/", (req, res) => {
   res.send({
     messenger: "welcome to my api",
@@ -26,25 +43,19 @@ app.get("/health", (req, res) => {
   });
 });
 
-app.get("/banners", (req, res) => {
-  const banners = [
-    {
-      title: "Makeup Kit 1",
-      description: "Lorem asdk ;lasda; lad; asdl ;asdl;sad las",
-      image: "/images/banner-img.png",
-    },
-    {
-      title: "Makeup Kit 2",
-      description: "Lorem asdk ;lasda; lad; asdl ;asdl;sad las",
-      image: "/images/banner-img.png",
-    },
-    {
-      title: "Makeup Kit 3",
-      description: "Lorem asdk ;lasda; lad; asdl ;asdl;sad las",
-      image: "/images/banner-img.png",
-    },
-  ];
-  res.send(banners);
+app.get('/banners', (req, res) => {
+  connection.query('SELECT * FROM banners', (err, rows) => {
+      if (err) throw err;
+      // Mapping dữ liệu trả về từ DB table => Response model
+      const banners = rows.map(row => {
+          return {
+              title: row.title,
+              description: row.description,
+              image: row.image
+          };
+      });
+      res.send(banners);
+  });
 });
 
 app.get("/get-data", async (req, res) => {
