@@ -1,14 +1,14 @@
-docker build -t coconut2442004/test:tagname .
+docker build -t dongochieu/devops-demo-backend .
 
-docker run -d --restart=always --name=devops-backend -p 3000:3000 coconut2442004/test:tagname
+docker run -d --restart=always --name=devops-backend -p 8080:3000 dongochieu/devops-demo-backend
 
-docker login -u coconut2442004
+docker login -u dongochieu
 
-docker push coconut2442004/test:tagname:latest
+docker push dongochieu/devops-demo-backend:latest
 
-docker image tag coconut2442004/test:tagname coconut2442004/test:1.0
+docker image tag dongochieu/devops-demo-backend dongochieu/devops-demo-backend:1.0
 
-docker push coconut2442004/test:1.0
+docker push dongochieu/devops-demo-backend:1.0
 
 # List running containers
 docker ps
@@ -25,3 +25,11 @@ docker rm -f devops-backend
 
 # Clean up disk
 docker image prune -a
+
+# Show log of a container
+docker logs devops-backend
+
+# Run MySQL server
+docker run --name devops-db -e MYSQL_ROOT_PASSWORD="root12345" -e MYSQL_USER="admin" -e MYSQL_PASSWORD="admin" -e MYSQL_DATABASE="tdc-devops" -p 3306:3306 -d mysql:8.0
+
+
