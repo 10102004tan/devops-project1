@@ -17,12 +17,13 @@ function App() {
   const [products, setProducts] = useState([])
   const [isShowMenu, setIsShowMenu] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:3000/banners")
+    fetch("http://localhost:3003/banners")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         setBanners(data)
+        console.log(data);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -35,6 +36,7 @@ function App() {
         return res.json()
       })
       .then((data) => {
+        
         setProducts(data['data'])
       })
       .catch((error) => {
